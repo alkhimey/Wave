@@ -19,6 +19,21 @@
         <variable constant="1" name="C_SLOW_SPEED" sid="256138574746666" static="0" type="number">90</variable>
         <variable constant="1" name="C_DIMMER_RATE" sid="920133809310977" static="0" type="number">1</variable>
         <variable constant="1" name="C_ONCLICK_SPEEDUP" sid="457758572830826" static="0" type="number">30</variable>
+        <event-block sid="726196114182528">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="463665673054465" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="629299583150863" type="System">
+                    <param id="0" name="Variable">TotalTime</param>
+                    <param id="1" name="Value">60</param>
+                </action>
+                <action id="-9" name="Set value" sid="985664326741816" type="System">
+                    <param id="0" name="Variable">gSpeed</param>
+                    <param id="1" name="Value">C_SLOW_SPEED</param>
+                </action>
+            </actions>
+        </event-block>
         <event-block sid="352952843272268">
             <conditions>
                 <condition id="-1" name="Every tick" sid="631997351887853" type="System" />
@@ -239,21 +254,6 @@
             </conditions>
             <actions>
                 <action id="-26" name="Restart layout" sid="587859922512271" type="System" />
-            </actions>
-        </event-block>
-        <event-block sid="726196114182528">
-            <conditions>
-                <condition id="-2" name="On start of layout" sid="463665673054465" type="System" />
-            </conditions>
-            <actions>
-                <action id="-9" name="Set value" sid="629299583150863" type="System">
-                    <param id="0" name="Variable">TotalTime</param>
-                    <param id="1" name="Value">60</param>
-                </action>
-                <action id="-9" name="Set value" sid="985664326741816" type="System">
-                    <param id="0" name="Variable">gSpeed</param>
-                    <param id="1" name="Value">C_SLOW_SPEED</param>
-                </action>
             </actions>
         </event-block>
         <comment>Experimental</comment>
