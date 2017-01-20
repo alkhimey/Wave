@@ -75,8 +75,44 @@
         <object-type name="Player" sid="260890240417007">
             <plugin id="Sprite" />
             <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="585858612257666" speed="5">
+                <animation framecount="4" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="585858612257666" speed="3">
                     <frame duration="1" hotspotX="0.508475" hotspotY="0.508475" original-source="C:\Users\yuval\Desktop\Game Design\GGJ\Player.png">
+                        <collision-poly>
+                            <point x="0.169231" y="0.169231" />
+                            <point x="0.492308" y="0.0307692" />
+                            <point x="0.830769" y="0.169231" />
+                            <point x="0.969231" y="0.492308" />
+                            <point x="0.830769" y="0.830769" />
+                            <point x="0.492308" y="0.969231" />
+                            <point x="0.169231" y="0.830769" />
+                            <point x="0.0307692" y="0.492308" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.508475" hotspotY="0.508475">
+                        <collision-poly>
+                            <point x="0.169231" y="0.169231" />
+                            <point x="0.492308" y="0.0307692" />
+                            <point x="0.830769" y="0.169231" />
+                            <point x="0.969231" y="0.492308" />
+                            <point x="0.830769" y="0.830769" />
+                            <point x="0.492308" y="0.969231" />
+                            <point x="0.169231" y="0.830769" />
+                            <point x="0.0307692" y="0.492308" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.508475" hotspotY="0.508475">
+                        <collision-poly>
+                            <point x="0.169231" y="0.169231" />
+                            <point x="0.492308" y="0.0307692" />
+                            <point x="0.830769" y="0.169231" />
+                            <point x="0.969231" y="0.492308" />
+                            <point x="0.830769" y="0.830769" />
+                            <point x="0.492308" y="0.969231" />
+                            <point x="0.169231" y="0.830769" />
+                            <point x="0.0307692" y="0.492308" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.508475" hotspotY="0.508475">
                         <collision-poly>
                             <point x="0.169231" y="0.169231" />
                             <point x="0.492308" y="0.0307692" />
