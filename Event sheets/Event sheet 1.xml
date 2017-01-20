@@ -18,7 +18,6 @@
         <variable constant="1" name="C_HIGH_SPEED" sid="410513905465488" static="0" type="number">150</variable>
         <variable constant="1" name="C_SLOW_SPEED" sid="256138574746666" static="0" type="number">90</variable>
         <variable constant="1" name="C_DIMMER_RATE" sid="920133809310977" static="0" type="number">1</variable>
-        <variable constant="1" name="C_ONCLICK_SPEEDUP" sid="457758572830826" static="0" type="number">30</variable>
         <event-block sid="726196114182528">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="463665673054465" type="System" />
