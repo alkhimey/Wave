@@ -91,22 +91,11 @@
         <object-type name="Mouse" sid="727018155052026">
             <plugin id="Mouse" />
         </object-type>
-        <object-type name="monopoint" sid="436169586725773">
+        <object-type name="H" sid="964196116290658">
             <plugin id="Sprite" />
             <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="610630903124375" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Artium\Desktop\mono-point.png">
-                        <collision-poly>
-                            <point x="0.382083" y="0.382083" />
-                            <point x="0.5" y="0.333333" />
-                            <point x="0.617917" y="0.382083" />
-                            <point x="0.666667" y="0.5" />
-                            <point x="0.617917" y="0.617917" />
-                            <point x="0.5" y="0.666667" />
-                            <point x="0.382083" y="0.617917" />
-                            <point x="0.333333" y="0.5" />
-                        </collision-poly>
-                    </frame>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="116020671500735" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Artium\Desktop\hand_point_right.png" />
                 </animation>
             </animation-folder>
         </object-type>

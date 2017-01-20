@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
     <events>
+        <variable comment="Y of last produced WP" constant="0" name="gLastY" sid="939335709954107" static="0" type="number">0</variable>
         <variable constant="0" name="gLeftD" sid="336132714754427" static="0" type="number">0</variable>
         <variable constant="0" name="gRightD" sid="210882850429128" static="0" type="number">0</variable>
         <variable constant="0" name="gLeftY" sid="731181868259720" static="0" type="number">0</variable>
@@ -10,31 +11,50 @@
         <variable constant="0" name="gLeftX" sid="329553527910144" static="0" type="number">0</variable>
         <variable constant="0" name="gRightX" sid="917350914154894" static="0" type="number">0</variable>
         <variable constant="0" name="gSlope" sid="146239107427857" static="0" type="number">0</variable>
-        <variable constant="1" name="cWaveOriginX" sid="959447128757349" static="0" type="number">0</variable>
+        <variable constant="1" name="C_MOUSE_S" sid="211749462303581" static="0" type="number">10</variable>
         <event-block sid="812452275549248">
             <conditions>
-                <condition id="-6" name="Every X seconds" sid="534401377240046" type="System">
-                    <param id="0" name="Interval (seconds)">0.2</param>
+                <condition id="-1" name="Every tick" sid="265539497786754" type="System" />
+                <condition id="-20" name="Pick highest/lowest" sid="903252827224899" type="Waypoint">
+                    <param id="0" name="Which">1</param>
+                    <param id="1" name="Instance variable">DistPlayerLeft</param>
                 </condition>
             </conditions>
-            <actions>
-                <action id="-3" name="Create object" sid="280672622477604" type="System">
-                    <param id="0" name="Object to create">Waypoint</param>
-                    <param id="1" name="Layer">0</param>
-                    <param id="2" name="X">CWAVEORIGINX</param>
-                    <param id="3" name="Y">Mouse.Y</param>
-                </action>
-            </actions>
+            <actions />
+            <sub-events>
+                <event-block sid="937198379293678">
+                    <conditions>
+                        <condition disabled="1" id="-8" name="Compare two values" sid="175331936634551" type="System">
+                            <param id="0" name="First value">abs(Mouse.Y - gLastY)</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">C_MOUSE_S</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="977083977055098" type="System">
+                            <param id="0" name="First value">sqrt(  (Waypoint.Y - Mouse.Y)*(Waypoint.Y - Mouse.Y) + (Waypoint.X - H.X)*(Waypoint.X - H.X))</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">C_MOUSE_S</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="280672622477604" type="System">
+                            <param id="0" name="Object to create">Waypoint</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">H.X + 10</param>
+                            <param id="3" name="Y">Mouse.Y</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="938144322952825" type="System">
+                            <param id="0" name="Variable">gLastY</param>
+                            <param id="1" name="Value">Mouse.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="783737585625393">
             <conditions>
                 <condition id="-1" name="Every tick" sid="256730877554534" type="System" />
             </conditions>
             <actions>
-                <action disabled="1" id="-3" name="Set position" sid="488725016640048" type="Player">
-                    <param id="0" name="X">Player.X</param>
-                    <param id="1" name="Y">gRightY</param>
-                </action>
                 <action id="-9" name="Set value" sid="812224464292832" type="System">
                     <param id="0" name="Variable">gSlope</param>
                     <param id="1" name="Value">(gRightY - gLeftY) / (gRightX - gLeftX)</param>
@@ -79,9 +99,6 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action disabled="1" id="-2" name="Set Y" sid="734773995715753" type="Player">
-                            <param id="0" name="Y">Waypoint.Y</param>
-                        </action>
                         <action id="-9" name="Set value" sid="335997351977646" type="System">
                             <param id="0" name="Variable">gLeftY</param>
                             <param id="1" name="Value">Waypoint.Y</param>
@@ -116,9 +133,6 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action disabled="1" id="-2" name="Set Y" sid="395211669226741" type="Player">
-                            <param id="0" name="Y">Waypoint.Y</param>
-                        </action>
                         <action id="-9" name="Set value" sid="373688995930370" type="System">
                             <param id="0" name="Variable">gRightY</param>
                             <param id="1" name="Value">Waypoint.Y</param>
@@ -134,6 +148,10 @@
                     </actions>
                 </event-block>
             </sub-events>
+        </event-block>
+        <event-block sid="759265847766217">
+            <conditions />
+            <actions />
         </event-block>
     </events>
 </c2eventsheet>
