@@ -17,18 +17,24 @@
                 <condition id="-1" name="Every tick" sid="631997351887853" type="System" />
             </conditions>
             <actions>
-                <action behavior="Physics" id="15" name="Set velocity" sid="353408487896384" type="H">
+                <action behavior="Physics" disabled="1" id="15" name="Set velocity" sid="353408487896384" type="H">
                     <param id="0" name="X component">0</param>
                     <param id="1" name="Y component">Mouse.Y - H.Y</param>
                 </action>
-                <action disabled="1" id="-2" name="Set Y" sid="188948932401731" type="H">
-                    <param id="0" name="Y">Mouse.Y</param>
-                </action>
-                <action behavior="Physics" id="1" name="Apply force towards position" sid="255211016367495" type="H">
+                <action behavior="Physics" disabled="1" id="1" name="Apply force towards position" sid="255211016367495" type="H">
                     <param id="0" name="Force">abs(Mouse.Y - H.Y)</param>
                     <param id="1" name="X">H.X</param>
                     <param id="2" name="Y">Mouse.Y</param>
                     <param id="3" name="Image point">0</param>
+                </action>
+                <action id="-1" name="Set X" sid="178543604761712" type="Player">
+                    <param id="0" name="X">max(0, min(Mouse.X, WindowWidth))</param>
+                </action>
+                <action disabled="1" id="-2" name="Set Y" sid="571357225018022" type="H">
+                    <param id="0" name="Y">Mouse.Y</param>
+                </action>
+                <action behavior="Sine" id="2" name="Set magnitude" sid="948017145892807" type="H">
+                    <param id="0" name="Magnitude">abs(Mouse.Y - (ViewportBottom(0) / 2))</param>
                 </action>
             </actions>
         </event-block>
@@ -231,6 +237,30 @@
                     <param id="1" name="Value">60</param>
                 </action>
             </actions>
+        </event-block>
+        <comment>Experimental</comment>
+        <event-block sid="914662509870221">
+            <conditions>
+                <condition id="0" name="On click" sid="412285646024064" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="282765356310960">
+                    <conditions>
+                        <condition id="-19" name="Pick all" sid="757342668457586" type="System">
+                            <param id="0" name="Object">Waypoint</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Set Y" sid="932932466303208" type="Waypoint">
+                            <param id="0" name="Y">ViewportBottom(0) - Waypoint.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>

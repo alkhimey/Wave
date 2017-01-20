@@ -18,6 +18,7 @@
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
         <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
+        <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
     </used-behaviors>
     <used-effects />
     <configurations>
@@ -135,6 +136,9 @@
             <behaviors>
                 <behavior-type name="Physics" sid="932258176692170">
                     <behavior id="Physics" />
+                </behavior-type>
+                <behavior-type name="Sine" sid="629755303084861">
+                    <behavior id="Sin" />
                 </behavior-type>
             </behaviors>
             <animation-folder>
