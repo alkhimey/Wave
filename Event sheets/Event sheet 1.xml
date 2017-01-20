@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="gLeftD" sid="336132714754427" static="0" type="number">0</variable>
+        <variable constant="0" name="gRightD" sid="210882850429128" static="0" type="number">0</variable>
+        <variable constant="0" name="gLeftY" sid="731181868259720" static="0" type="number">0</variable>
+        <variable constant="0" name="gRightY" sid="463046013033239" static="0" type="number">0</variable>
+        <variable constant="0" name="gLeftX" sid="329553527910144" static="0" type="number">0</variable>
+        <variable constant="0" name="gRightX" sid="917350914154894" static="0" type="number">0</variable>
+        <variable constant="0" name="gSlope" sid="146239107427857" static="0" type="number">0</variable>
+        <variable constant="1" name="cWaveOriginX" sid="959447128757349" static="0" type="number">0</variable>
+        <event-block sid="812452275549248">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="534401377240046" type="System">
+                    <param id="0" name="Interval (seconds)">0.2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="280672622477604" type="System">
+                    <param id="0" name="Object to create">Waypoint</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">CWAVEORIGINX</param>
+                    <param id="3" name="Y">Mouse.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="783737585625393">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="256730877554534" type="System" />
+            </conditions>
+            <actions>
+                <action disabled="1" id="-3" name="Set position" sid="488725016640048" type="Player">
+                    <param id="0" name="X">Player.X</param>
+                    <param id="1" name="Y">gRightY</param>
+                </action>
+                <action id="-9" name="Set value" sid="812224464292832" type="System">
+                    <param id="0" name="Variable">gSlope</param>
+                    <param id="1" name="Value">(gRightY - gLeftY) / (gRightX - gLeftX)</param>
+                </action>
+                <action id="-2" name="Set Y" sid="494311120147512" type="Player">
+                    <param id="0" name="Y">Player.X *gSlope + gLeftY - gLeftX * gSlope</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="460494055970402">
+            <conditions>
+                <condition id="-19" name="Pick all" sid="779714355093417" type="System">
+                    <param id="0" name="Object">Waypoint</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="229492480401125" type="Waypoint">
+                    <param id="0" name="Instance variable">DistPlayerRight</param>
+                    <param id="1" name="Value">Waypoint.X - Player.X</param>
+                </action>
+                <action id="-10" name="Set value" sid="850012122955504" type="Waypoint">
+                    <param id="0" name="Instance variable">DistPlayerLeft</param>
+                    <param id="1" name="Value">Player.X - Waypoint.X</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="333661652888425">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="926033342947839" type="Waypoint">
+                    <param id="0" name="Instance variable">DistPlayerRight</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="748960653287461">
+                    <conditions>
+                        <condition id="-20" name="Pick highest/lowest" sid="689886670670568" type="Waypoint">
+                            <param id="0" name="Which">0</param>
+                            <param id="1" name="Instance variable">DistPlayerRight</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="-2" name="Set Y" sid="734773995715753" type="Player">
+                            <param id="0" name="Y">Waypoint.Y</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="335997351977646" type="System">
+                            <param id="0" name="Variable">gLeftY</param>
+                            <param id="1" name="Value">Waypoint.Y</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="145249550912304" type="System">
+                            <param id="0" name="Variable">gLeftX</param>
+                            <param id="1" name="Value">Waypoint.X</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="544209491141897" type="System">
+                            <param id="0" name="Variable">gLeftD</param>
+                            <param id="1" name="Value">Waypoint.DistPlayerLeft</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="917317541761139">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="596288890659234" type="Waypoint">
+                    <param id="0" name="Instance variable">DistPlayerLeft</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="564578142909277">
+                    <conditions>
+                        <condition id="-20" name="Pick highest/lowest" sid="642814509470639" type="Waypoint">
+                            <param id="0" name="Which">0</param>
+                            <param id="1" name="Instance variable">DistPlayerLeft</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="-2" name="Set Y" sid="395211669226741" type="Player">
+                            <param id="0" name="Y">Waypoint.Y</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="373688995930370" type="System">
+                            <param id="0" name="Variable">gRightY</param>
+                            <param id="1" name="Value">Waypoint.Y</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="440713472908801" type="System">
+                            <param id="0" name="Variable">gRightX</param>
+                            <param id="1" name="Value">Waypoint.X</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="494446981437958" type="System">
+                            <param id="0" name="Variable">gRightD</param>
+                            <param id="1" name="Value">Waypoint.DistPlayerRight</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>
