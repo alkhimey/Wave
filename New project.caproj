@@ -12,6 +12,8 @@
     <used-plugins>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
@@ -74,7 +76,7 @@
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="585858612257666" speed="5">
-                    <frame duration="1" hotspotX="0.507692" hotspotY="0.507692" original-source="C:\Users\Artium\Desktop\Wave\Animations\Sprite\Default\003.png">
+                    <frame duration="1" hotspotX="0.508475" hotspotY="0.508475" original-source="C:\Users\yuval\Desktop\Game Design\GGJ\Player.png">
                         <collision-poly>
                             <point x="0.169231" y="0.169231" />
                             <point x="0.492308" y="0.0307692" />
@@ -104,6 +106,40 @@
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Artium\Desktop\hand_point_right.png" />
                 </animation>
             </animation-folder>
+        </object-type>
+        <object-type name="TimeToEnd" sid="568669722086198">
+            <plugin id="Text" />
+            <instance-variables>
+                <instance-variable name="CurrentTime" sid="304576754648266" type="string" />
+            </instance-variables>
+        </object-type>
+        <object-type name="Sprite" sid="457894726563212">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="512011280231460">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="998186047164182" speed="5">
+                    <frame duration="1" hotspotX="0.510204" hotspotY="0.510204" original-source="C:\Users\yuval\Desktop\Game Design\GGJ\light.png">
+                        <collision-poly>
+                            <point x="0.166667" y="0.166667" />
+                            <point x="0.5" y="0.0238095" />
+                            <point x="0.833333" y="0.166667" />
+                            <point x="0.97619" y="0.5" />
+                            <point x="0.833333" y="0.833333" />
+                            <point x="0.5" y="0.97619" />
+                            <point x="0.166667" y="0.833333" />
+                            <point x="0.0238095" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="TiledBackground" sid="215652213655831">
+            <plugin id="TiledBg" />
+            <texture />
         </object-type>
     </object-folder>
     <families />

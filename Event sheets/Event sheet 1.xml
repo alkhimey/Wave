@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
     <events>
+        <variable constant="0" name="TotalTime" sid="394502868988145" static="0" type="number">11</variable>
         <variable constant="0" name="gLeftD" sid="336132714754427" static="0" type="number">0</variable>
         <variable constant="0" name="gRightD" sid="210882850429128" static="0" type="number">0</variable>
         <variable constant="0" name="gLeftY" sid="731181868259720" static="0" type="number">0</variable>
@@ -162,6 +163,74 @@
         <event-block sid="759265847766217">
             <conditions />
             <actions />
+        </event-block>
+        <event-block sid="708826427343702">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="888184581434524" type="System">
+                    <param id="0" name="Interval (seconds)">1.0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="861819139294230" type="TimeToEnd">
+                    <param id="0" name="Text">&quot;TIME   &quot;  &amp; str(TotalTime - 1)</param>
+                </action>
+                <action id="-9" name="Set value" sid="612420795405471" type="System">
+                    <param id="0" name="Variable">TotalTime</param>
+                    <param id="1" name="Value">TotalTime - 1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="570345994622858">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="269881719044741" type="System">
+                    <param id="0" name="Interval (seconds)">4</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="272288797908980" type="System">
+                    <param id="0" name="Object to create">Sprite</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">0</param>
+                    <param id="3" name="Y">random(200)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="733454215211755">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="660394149047478" type="Player">
+                    <param id="0" name="Object">Sprite</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="484878441840069" type="Sprite" />
+                <action id="-9" name="Set value" sid="760118336809364" type="System">
+                    <param id="0" name="Variable">TotalTime</param>
+                    <param id="1" name="Value">TotalTime + 3</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="516582453483227">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="552670543591676" type="System">
+                    <param id="0" name="Variable">TotalTime</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-26" name="Restart layout" sid="587859922512271" type="System" />
+            </actions>
+        </event-block>
+        <event-block sid="726196114182528">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="463665673054465" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="629299583150863" type="System">
+                    <param id="0" name="Variable">TotalTime</param>
+                    <param id="1" name="Value">60</param>
+                </action>
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>
