@@ -3,7 +3,6 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
     <events>
-        <variable comment="Y of last produced WP" constant="0" name="gLastY" sid="939335709954107" static="0" type="number">0</variable>
         <variable constant="0" name="gLeftD" sid="336132714754427" static="0" type="number">0</variable>
         <variable constant="0" name="gRightD" sid="210882850429128" static="0" type="number">0</variable>
         <variable constant="0" name="gLeftY" sid="731181868259720" static="0" type="number">0</variable>
@@ -11,7 +10,27 @@
         <variable constant="0" name="gLeftX" sid="329553527910144" static="0" type="number">0</variable>
         <variable constant="0" name="gRightX" sid="917350914154894" static="0" type="number">0</variable>
         <variable constant="0" name="gSlope" sid="146239107427857" static="0" type="number">0</variable>
-        <variable constant="1" name="C_MOUSE_S" sid="211749462303581" static="0" type="number">10</variable>
+        <variable constant="1" name="C_MOUSE_S" sid="211749462303581" static="0" type="number">50</variable>
+        <event-block sid="352952843272268">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="631997351887853" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Physics" id="15" name="Set velocity" sid="353408487896384" type="H">
+                    <param id="0" name="X component">0</param>
+                    <param id="1" name="Y component">Mouse.Y - H.Y</param>
+                </action>
+                <action disabled="1" id="-2" name="Set Y" sid="188948932401731" type="H">
+                    <param id="0" name="Y">Mouse.Y</param>
+                </action>
+                <action behavior="Physics" id="1" name="Apply force towards position" sid="255211016367495" type="H">
+                    <param id="0" name="Force">abs(Mouse.Y - H.Y)</param>
+                    <param id="1" name="X">H.X</param>
+                    <param id="2" name="Y">Mouse.Y</param>
+                    <param id="3" name="Image point">0</param>
+                </action>
+            </actions>
+        </event-block>
         <event-block sid="812452275549248">
             <conditions>
                 <condition id="-1" name="Every tick" sid="265539497786754" type="System" />
@@ -24,13 +43,8 @@
             <sub-events>
                 <event-block sid="937198379293678">
                     <conditions>
-                        <condition disabled="1" id="-8" name="Compare two values" sid="175331936634551" type="System">
-                            <param id="0" name="First value">abs(Mouse.Y - gLastY)</param>
-                            <param id="1" name="Comparison">4</param>
-                            <param id="2" name="Second value">C_MOUSE_S</param>
-                        </condition>
                         <condition id="-8" name="Compare two values" sid="977083977055098" type="System">
-                            <param id="0" name="First value">sqrt(  (Waypoint.Y - Mouse.Y)*(Waypoint.Y - Mouse.Y) + (Waypoint.X - H.X)*(Waypoint.X - H.X))</param>
+                            <param id="0" name="First value">sqrt(  (Waypoint.Y - H.Y)*(Waypoint.Y - H.Y) + (Waypoint.X - H.X)*(Waypoint.X - H.X))</param>
                             <param id="1" name="Comparison">4</param>
                             <param id="2" name="Second value">C_MOUSE_S</param>
                         </condition>
@@ -40,11 +54,7 @@
                             <param id="0" name="Object to create">Waypoint</param>
                             <param id="1" name="Layer">0</param>
                             <param id="2" name="X">H.X + 10</param>
-                            <param id="3" name="Y">Mouse.Y</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="938144322952825" type="System">
-                            <param id="0" name="Variable">gLastY</param>
-                            <param id="1" name="Value">Mouse.Y</param>
+                            <param id="3" name="Y">H.Y</param>
                         </action>
                     </actions>
                 </event-block>

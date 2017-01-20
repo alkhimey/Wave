@@ -15,6 +15,7 @@
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
     </used-behaviors>
     <used-effects />
     <configurations>
@@ -93,6 +94,11 @@
         </object-type>
         <object-type name="H" sid="964196116290658">
             <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Physics" sid="932258176692170">
+                    <behavior id="Physics" />
+                </behavior-type>
+            </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="116020671500735" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Artium\Desktop\hand_point_right.png" />
