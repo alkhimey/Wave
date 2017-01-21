@@ -64,7 +64,7 @@
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="754421821464110" speed="5">
-                    <frame duration="1" hotspotX="0.52" hotspotY="0.52" original-source="C:\Users\Artium\Desktop\Wave\Animations\Waypoint\Default\000.png">
+                    <frame duration="1" hotspotX="0.521739" hotspotY="0.521739" original-source="C:\Users\Artium\Downloads\unnamed.png">
                         <collision-poly>
                             <point x="0.04" y="0.04" />
                             <point x="0.48" y="0" />
@@ -169,6 +169,10 @@
                     <behavior id="Bullet" />
                 </behavior-type>
             </behaviors>
+            <container>
+                <type>Orb</type>
+                <type>OrbGlow</type>
+            </container>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="998186047164182" speed="5">
                     <frame duration="1" hotspotX="0.510204" hotspotY="0.510204" original-source="C:\Users\yuval\Desktop\Game Design\GGJ\light.png">
@@ -234,6 +238,39 @@
         </object-type>
         <object-type name="Audio" sid="756134461867124">
             <plugin id="Audio" />
+        </object-type>
+        <object-type name="OrbGlow" sid="609374986268787">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Pin" sid="869091426332099">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <effects>
+                <effect-type name="Brightness">
+                    <effect id="brightness" />
+                </effect-type>
+            </effects>
+            <container>
+                <type>Orb</type>
+                <type>OrbGlow</type>
+            </container>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="215052733590706" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Artium\Downloads\glow.png">
+                        <collision-poly>
+                            <point x="0.323779" y="0.323779" />
+                            <point x="0.5" y="0.250531" />
+                            <point x="0.678344" y="0.321656" />
+                            <point x="0.750531" y="0.5" />
+                            <point x="0.677282" y="0.677282" />
+                            <point x="0.5" y="0.750531" />
+                            <point x="0.321656" y="0.678344" />
+                            <point x="0.250531" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
         </object-type>
     </object-folder>
     <families />
