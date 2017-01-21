@@ -13,7 +13,6 @@
         <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
-        <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
     </used-plugins>
     <used-behaviors>
@@ -156,12 +155,6 @@
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Artium\Desktop\hand_point_right.png" />
                 </animation>
             </animation-folder>
-        </object-type>
-        <object-type name="Energy" sid="568669722086198">
-            <plugin id="Text" />
-            <instance-variables>
-                <instance-variable name="CurrentTime" sid="304576754648266" type="string" />
-            </instance-variables>
         </object-type>
         <object-type name="Orb" sid="457894726563212">
             <plugin id="Sprite" />
