@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 2</name>
+    <events>
+        <variable constant="0" name="ScrollSpeed" sid="356584522721690" static="0" type="number">200</variable>
+        <event-block sid="486845398309559">
+            <conditions>
+                <condition id="0" name="On click" sid="972144997745212" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="216552243402839" type="System">
+                    <param id="0" name="Layout">Layout 1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="727498955956940">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="956217371417472" type="System" />
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" sid="419655051047813" type="TiledBackground3">
+                    <param id="0" name="X">TiledBackground3.X + (dt * ScrollSpeed)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="561973603650690">
+            <conditions>
+                <condition id="-1" name="Compare X" sid="701203881163264" type="TiledBackground3">
+                    <param id="0" name="Comparison">5</param>
+                    <param id="1" name="X co-ordinate">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" sid="469878938548286" type="TiledBackground3">
+                    <param id="0" name="X">-1024</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
