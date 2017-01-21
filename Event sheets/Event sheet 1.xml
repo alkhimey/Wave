@@ -39,13 +39,13 @@
                 <action behavior="Sine" id="1" name="Set period" sid="202127826320261" type="OrbGenerator">
                     <param id="0" name="Period">10 * C_ORB_BIRTH_RATE</param>
                 </action>
-                <action behavior="Pin" id="0" name="Pin to object" sid="987126268240252" type="PlayerGlow">
-                    <param id="0" name="Pin to">Player</param>
-                    <param id="1" name="Mode">1</param>
-                </action>
                 <action id="-10" name="Set value" sid="221948605508337" type="Player">
                     <param id="0" name="Instance variable">Energy</param>
                     <param id="1" name="Value">C_INIT_ENERGY</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="470255986027728" type="PlayerGlow">
+                    <param id="0" name="Pin to">Player</param>
+                    <param id="1" name="Mode">1</param>
                 </action>
             </actions>
         </event-block>
@@ -273,10 +273,8 @@
                         <action id="9" name="Set scale" sid="426135669095945" type="Player">
                             <param id="0" name="Scale">((Player.Energy - C_INIT_ENERGY) / (C_ENERGY_REFILL - C_INIT_ENERGY)) * (C_SCALE_MAX - 1) + 1</param>
                         </action>
-                        <action id="-28" name="Set effect parameter" sid="174471069277542" type="PlayerGlow">
-                            <param id="0" name="Effect">&quot;Brightness&quot;</param>
-                            <param id="1" name="Parameter index">0</param>
-                            <param id="2" name="Value">((Player.Energy - C_INIT_ENERGY) / (C_ENERGY_REFILL - C_INIT_ENERGY)) * (C_SCALE_MAX - 1) + 1</param>
+                        <action id="9" name="Set scale" sid="433450264747861" type="PlayerGlow">
+                            <param id="0" name="Scale">((Player.Energy - C_INIT_ENERGY) / (C_ENERGY_REFILL - C_INIT_ENERGY)) * (C_SCALE_MAX - 1) + 1</param>
                         </action>
                     </actions>
                 </event-block>
@@ -335,10 +333,6 @@
                     <param id="1" name="Layer">LayerIndex(&quot;Player_Layer&quot;)</param>
                     <param id="2" name="X">OrbGenerator.X</param>
                     <param id="3" name="Y">random(ViewportBottom(LayerIndex(&quot;Player_Layer&quot;)))</param>
-                </action>
-                <action behavior="Pin" id="0" name="Pin to object" sid="670105705153162" type="OrbGlow">
-                    <param id="0" name="Pin to">Orb</param>
-                    <param id="1" name="Mode">1</param>
                 </action>
             </actions>
         </event-block>
