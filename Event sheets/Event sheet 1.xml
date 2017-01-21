@@ -12,6 +12,9 @@
         <variable constant="0" name="gSpeed" sid="965775075393070" static="0" type="number">0</variable>
         <variable constant="0" name="gSlope" sid="146239107427857" static="0" type="number">0</variable>
         <comment>*********************************************************************&#x0D;&#x0A;&#x0D;&#x0A;Configuration&#x0D;&#x0A;&#x0D;&#x0A;*********************************************************************</comment>
+        <variable constant="0" name="C_FG_OPACITY_INIT" sid="192883792737255" static="0" type="number">70</variable>
+        <variable constant="0" name="C_FG_OPACITY_LOWEST" sid="829321207277247" static="0" type="number">100</variable>
+        <variable constant="1" name="C_GLOW_SCALE_LOW" sid="289928419672806" static="0" type="number">0.15</variable>
         <variable constant="1" name="C_BG_SCROLL_SLOW" sid="561233634800723" static="0" type="number">200</variable>
         <variable constant="1" name="C_BG_SCROLL_FAST" sid="627426321436681" static="0" type="number">260</variable>
         <variable comment="Distance between two generated path points" constant="1" name="C_CREATION_DIST" sid="523459535548055" static="0" type="number">25</variable>
@@ -22,7 +25,7 @@
         <variable comment="Normal speed of the path" constant="1" name="C_SLOW_SPEED" sid="256138574746666" static="0" type="number">90</variable>
         <variable comment="Time between orb creation events" constant="1" name="C_ORB_BIRTH_RATE" sid="813345312084330" static="0" type="number">4</variable>
         <variable comment="Time addition when eating an orb" constant="1" name="C_TIME_BOOST" sid="818590381188798" static="0" type="number">5</variable>
-        <variable comment="Loss of energy per second" constant="1" name="C_ENERGY_LOSS_RATE_NORM" sid="957379678288009" static="0" type="number">2</variable>
+        <variable comment="Loss of energy per second" constant="1" name="C_ENERGY_LOSS_RATE_NORM" sid="957379678288009" static="0" type="number">4</variable>
         <variable comment="Loss of energy per second if above 100%" constant="1" name="C_ENERGY_LOSS_RATE_FAST" sid="645328067284657" static="0" type="number">150</variable>
         <variable comment="Initial energy" constant="1" name="C_INIT_ENERGY" sid="692890331621606" static="0" type="number">100</variable>
         <variable constant="1" name="C_ENERGY_REFILL" sid="333028908316616" static="0" type="number">200</variable>
@@ -51,6 +54,10 @@
                 <action id="-9" name="Set value" sid="211970823386099" type="System">
                     <param id="0" name="Variable">ScrollSpeed</param>
                     <param id="1" name="Value">C_BG_SCROLL_SLOW</param>
+                </action>
+                <action id="-18" name="Set layer opacity" sid="667860513564304" type="System">
+                    <param id="0" name="Layer">LayerIndex(&quot;FG&quot;)</param>
+                    <param id="1" name="Opacity">C_FG_OPACITY_INIT</param>
                 </action>
             </actions>
         </event-block>
@@ -277,6 +284,10 @@
                         <action id="9" name="Set scale" sid="433450264747861" type="PlayerGlow">
                             <param id="0" name="Scale">((Player.Energy - C_INIT_ENERGY) / (C_ENERGY_REFILL - C_INIT_ENERGY)) * (C_SCALE_MAX - 1) + 1</param>
                         </action>
+                        <action id="-18" name="Set layer opacity" sid="380046065464622" type="System">
+                            <param id="0" name="Layer">LayerIndex(&quot;FG&quot;)</param>
+                            <param id="1" name="Opacity">C_FG_OPACITY_INIT</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="889542140351536">
@@ -289,6 +300,13 @@
                         </action>
                         <action id="9" name="Set scale" sid="891232797111642" type="PlayerGlow">
                             <param id="0" name="Scale">1</param>
+                        </action>
+                        <action id="9" name="Set scale" sid="653784095200934" type="PlayerGlow">
+                            <param id="0" name="Scale">((Player.Energy - 0) / (C_INIT_ENERGY - 0)) * (1 - C_GLOW_SCALE_LOW) + C_GLOW_SCALE_LOW</param>
+                        </action>
+                        <action id="-18" name="Set layer opacity" sid="879021959698004" type="System">
+                            <param id="0" name="Layer">LayerIndex(&quot;FG&quot;)</param>
+                            <param id="1" name="Opacity">( (Player.Energy - 0) / (C_INIT_ENERGY - 0) ) * (C_FG_OPACITY_INIT - C_FG_OPACITY_LOWEST) + C_FG_OPACITY_LOWEST</param>
                         </action>
                     </actions>
                 </event-block>
