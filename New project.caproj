@@ -81,6 +81,7 @@
             <plugin id="Sprite" />
             <instance-variables>
                 <instance-variable name="Energy" sid="685466709890585" type="number" />
+                <instance-variable name="CurentEnergy" sid="120693119184947" type="number" />
             </instance-variables>
             <effects>
                 <effect-type name="Brightness">
@@ -88,55 +89,17 @@
                 </effect-type>
             </effects>
             <animation-folder>
-                <animation framecount="4" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="585858612257666" speed="3">
-                    <frame duration="1" hotspotX="0.508475" hotspotY="0.508475" original-source="C:\Users\yuval\Desktop\Game Design\GGJ\Player.png">
-                        <collision-poly>
-                            <point x="0.169231" y="0.169231" />
-                            <point x="0.492308" y="0.0307692" />
-                            <point x="0.830769" y="0.169231" />
-                            <point x="0.969231" y="0.492308" />
-                            <point x="0.830769" y="0.830769" />
-                            <point x="0.492308" y="0.969231" />
-                            <point x="0.169231" y="0.830769" />
-                            <point x="0.0307692" y="0.492308" />
-                        </collision-poly>
-                    </frame>
-                    <frame duration="1" hotspotX="0.508475" hotspotY="0.508475">
-                        <collision-poly>
-                            <point x="0.169231" y="0.169231" />
-                            <point x="0.492308" y="0.0307692" />
-                            <point x="0.830769" y="0.169231" />
-                            <point x="0.969231" y="0.492308" />
-                            <point x="0.830769" y="0.830769" />
-                            <point x="0.492308" y="0.969231" />
-                            <point x="0.169231" y="0.830769" />
-                            <point x="0.0307692" y="0.492308" />
-                        </collision-poly>
-                    </frame>
-                    <frame duration="1" hotspotX="0.508475" hotspotY="0.508475">
-                        <collision-poly>
-                            <point x="0.169231" y="0.169231" />
-                            <point x="0.492308" y="0.0307692" />
-                            <point x="0.830769" y="0.169231" />
-                            <point x="0.969231" y="0.492308" />
-                            <point x="0.830769" y="0.830769" />
-                            <point x="0.492308" y="0.969231" />
-                            <point x="0.169231" y="0.830769" />
-                            <point x="0.0307692" y="0.492308" />
-                        </collision-poly>
-                    </frame>
-                    <frame duration="1" hotspotX="0.508475" hotspotY="0.508475">
-                        <collision-poly>
-                            <point x="0.169231" y="0.169231" />
-                            <point x="0.492308" y="0.0307692" />
-                            <point x="0.830769" y="0.169231" />
-                            <point x="0.969231" y="0.492308" />
-                            <point x="0.830769" y="0.830769" />
-                            <point x="0.492308" y="0.969231" />
-                            <point x="0.169231" y="0.830769" />
-                            <point x="0.0307692" y="0.492308" />
-                        </collision-poly>
-                    </frame>
+                <animation framecount="10" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="585858612257666" speed="8">
+                    <frame duration="1" hotspotX="0.510204" hotspotY="0.510204" original-source="F:\object\object (1).png" />
+                    <frame duration="1" hotspotX="0.510204" hotspotY="0.510204" original-source="F:\object\object (2).png" />
+                    <frame duration="1" hotspotX="0.510204" hotspotY="0.510204" original-source="F:\object\object (3).png" />
+                    <frame duration="1" hotspotX="0.510204" hotspotY="0.510204" original-source="F:\object\object (4).png" />
+                    <frame duration="1" hotspotX="0.510204" hotspotY="0.510204" original-source="F:\object\object (5).png" />
+                    <frame duration="1" hotspotX="0.510204" hotspotY="0.510204" original-source="F:\object\object (6).png" />
+                    <frame duration="1" hotspotX="0.510204" hotspotY="0.510204" original-source="F:\object\object (7).png" />
+                    <frame duration="1" hotspotX="0.510204" hotspotY="0.510204" original-source="F:\object\object (8).png" />
+                    <frame duration="1" hotspotX="0.510204" hotspotY="0.510204" original-source="F:\object\object (9).png" />
+                    <frame duration="1" hotspotX="0.510204" hotspotY="0.510204" original-source="F:\object\object (10).png" />
                 </animation>
             </animation-folder>
         </object-type>
@@ -283,6 +246,8 @@
     <music-folder>
         <file name="dieShuffle1.ogg" />
         <file name="zapThreeToneDown.ogg" />
+        <file name="powerUp10.ogg" />
+        <file name="powerUp11.ogg" />
     </music-folder>
     <files-folder>
         <file-folder name="Icons">

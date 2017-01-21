@@ -19,15 +19,14 @@
         <variable constant="1" name="C_BG_SCROLL_SLOW" sid="561233634800723" static="0" type="number">260</variable>
         <variable constant="1" name="C_BG_SCROLL_FAST" sid="627426321436681" static="0" type="number">200</variable>
         <variable comment="Distance between two generated path points" constant="1" name="C_CREATION_DIST" sid="523459535548055" static="0" type="number">25</variable>
-        <variable comment="Distance between two generated path points" constant="1" name="C_CREATION_DIST2" sid="756990830858094" static="0" type="number">25</variable>
         <variable comment="Velocity gain of the path generator" constant="1" name="C_VEL_GAIN" sid="988797298908606" static="0" type="number">1.5</variable>
         <variable comment="Acceleration gain of the path generator" constant="1" name="C_ACC_GAIN" sid="422255409009347" static="0" type="number">1</variable>
         <variable comment="Speed of the path when mouse button pressed" constant="1" name="C_HIGH_SPEED" sid="410513905465488" static="0" type="number">90</variable>
-        <variable comment="Normal speed of the path" constant="1" name="C_SLOW_SPEED" sid="256138574746666" static="0" type="number">250</variable>
-        <variable comment="Time between orb creation events" constant="1" name="C_ORB_BIRTH_RATE" sid="813345312084330" static="0" type="number">4</variable>
+        <variable comment="Normal speed of the path" constant="1" name="C_SLOW_SPEED" sid="256138574746666" static="0" type="number">280</variable>
+        <variable comment="Time between orb creation events" constant="1" name="C_ORB_BIRTH_RATE" sid="813345312084330" static="0" type="number">5</variable>
         <variable comment="Time addition when eating an orb" constant="1" name="C_TIME_BOOST" sid="818590381188798" static="0" type="number">5</variable>
         <variable comment="Loss of energy per second" constant="1" name="C_ENERGY_LOSS_RATE_NORM" sid="957379678288009" static="0" type="number">10</variable>
-        <variable comment="Loss of energy per second" constant="1" name="C_ENERGY_LOSS_RATE_NORM2" sid="663536572773849" static="0" type="number">6</variable>
+        <variable comment="Loss of energy per second" constant="1" name="C_ENERGY_LOSS_RATE_NORM2" sid="663536572773849" static="0" type="number">5</variable>
         <variable comment="Loss of energy per second if above 100%" constant="1" name="C_ENERGY_LOSS_RATE_FAST" sid="645328067284657" static="0" type="number">150</variable>
         <variable comment="Initial energy" constant="1" name="C_INIT_ENERGY" sid="692890331621606" static="0" type="number">100</variable>
         <variable constant="1" name="C_ENERGY_REFILL" sid="333028908316616" static="0" type="number">200</variable>
@@ -338,12 +337,16 @@
                 </condition>
             </conditions>
             <actions>
+                <action id="-10" name="Set value" sid="755912746005010" type="Player">
+                    <param id="0" name="Instance variable">CurentEnergy</param>
+                    <param id="1" name="Value">Player.Energy + 50</param>
+                </action>
                 <action id="-10" name="Set value" sid="364179277567942" type="Player">
                     <param id="0" name="Instance variable">Energy</param>
                     <param id="1" name="Value">C_ENERGY_REFILL</param>
                 </action>
                 <action id="0" name="Play" sid="476397296002661" type="Audio">
-                    <param id="0" name="Audio file">zapThreeToneDown</param>
+                    <param id="0" name="Audio file">powerUp10</param>
                     <param id="2" name="Loop">0</param>
                     <param id="3" name="Volume">0</param>
                     <param id="1" name="Tag (optional)">&quot;&quot;</param>
@@ -356,6 +359,13 @@
                     <param id="0" name="Seconds">0.5</param>
                 </action>
                 <action id="-9" name="Destroy" sid="484878441840069" type="Orb" />
+                <action id="-16" name="Wait" sid="721569918965837" type="System">
+                    <param id="0" name="Seconds">0.15</param>
+                </action>
+                <action id="-10" name="Set value" sid="425692848649081" type="Player">
+                    <param id="0" name="Instance variable">Energy</param>
+                    <param id="1" name="Value">Player.CurentEnergy</param>
+                </action>
             </actions>
         </event-block>
         <comment>Orb Generation</comment>

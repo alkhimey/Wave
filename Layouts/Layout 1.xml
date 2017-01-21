@@ -134,6 +134,7 @@
                     </properties>
                     <instance-variables>
                         <Energy>0</Energy>
+                        <CurentEnergy>0</CurentEnergy>
                     </instance-variables>
                     <effect-instances>
                         <effect-instance type="Brightness">
@@ -145,14 +146,14 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>443</x>
+                        <x>800</x>
                         <y>231</y>
                         <z>0</z>
-                        <width>55.993629456</width>
-                        <height>48.759555817</height>
+                        <width>46.503181458</width>
+                        <height>40.495223999</height>
                         <depth>0</depth>
-                        <hotspotX>0.508474588</hotspotX>
-                        <hotspotY>0.508474588</hotspotY>
+                        <hotspotX>0.510204077</hotspotX>
+                        <hotspotY>0.510204077</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -271,7 +272,7 @@
                     <blend-mode>8</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>443</x>
+                        <x>800</x>
                         <y>231</y>
                         <z>0</z>
                         <width>300</width>
@@ -293,7 +294,7 @@
                     <behavior-instances>
                         <behavior-instance type="Bullet">
                             <properties>
-                                <speed>70</speed>
+                                <speed>230</speed>
                                 <acceleration>0</acceleration>
                                 <gravity>0</gravity>
                                 <bounce-off-solids>No</bounce-off-solids>
