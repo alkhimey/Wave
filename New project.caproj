@@ -171,8 +171,8 @@
                 </behavior-type>
             </behaviors>
             <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="998186047164182" speed="5">
-                    <frame duration="1" hotspotX="0.510204" hotspotY="0.510204" original-source="C:\Users\yuval\Desktop\Game Design\GGJ\light.png">
+                <animation framecount="10" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="998186047164182" speed="10">
+                    <frame duration="1" hotspotX="0.510204" hotspotY="0.510204" original-source="C:\Users\yuval\Desktop\lightfly\lightfly0001.png">
                         <collision-poly>
                             <point x="0.166667" y="0.166667" />
                             <point x="0.5" y="0.0238095" />
@@ -184,6 +184,15 @@
                             <point x="0.0238095" y="0.5" />
                         </collision-poly>
                     </frame>
+                    <frame duration="1" hotspotX="0.510204" hotspotY="0.510204" original-source="C:\Users\yuval\Desktop\lightfly\lightfly0002.png" />
+                    <frame duration="1" hotspotX="0.510204" hotspotY="0.510204" original-source="C:\Users\yuval\Desktop\lightfly\lightfly0003.png" />
+                    <frame duration="1" hotspotX="0.510204" hotspotY="0.510204" original-source="C:\Users\yuval\Desktop\lightfly\lightfly0004.png" />
+                    <frame duration="1" hotspotX="0.510204" hotspotY="0.510204" original-source="C:\Users\yuval\Desktop\lightfly\lightfly0005.png" />
+                    <frame duration="1" hotspotX="0.510204" hotspotY="0.510204" original-source="C:\Users\yuval\Desktop\lightfly\lightfly0006.png" />
+                    <frame duration="1" hotspotX="0.510204" hotspotY="0.510204" original-source="C:\Users\yuval\Desktop\lightfly\lightfly0007.png" />
+                    <frame duration="1" hotspotX="0.510204" hotspotY="0.510204" original-source="C:\Users\yuval\Desktop\lightfly\lightfly0008.png" />
+                    <frame duration="1" hotspotX="0.510204" hotspotY="0.510204" original-source="C:\Users\yuval\Desktop\lightfly\lightfly0009.png" />
+                    <frame duration="1" hotspotX="0.510204" hotspotY="0.510204" original-source="C:\Users\yuval\Desktop\lightfly\lightfly0010.png" />
                 </animation>
             </animation-folder>
         </object-type>
