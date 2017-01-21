@@ -34,6 +34,7 @@
     </window-size>
     <pixel-rounding>0</pixel-rounding>
     <preview-effects>1</preview-effects>
+    <first-layout>Layout 2</first-layout>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
@@ -186,10 +187,6 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="TiledBackground" sid="215652213655831">
-            <plugin id="TiledBg" />
-            <texture />
-        </object-type>
         <object-type name="OrbGenerator" sid="901684612495279">
             <plugin id="Sprite" />
             <behaviors>
@@ -235,13 +232,23 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="TiledBackground2" sid="116811389255597">
+            <plugin id="TiledBg" />
+            <texture original-source="C:\Users\yuval\Downloads\ReloadLayout.png" />
+        </object-type>
+        <object-type name="TiledBackground3" sid="524298643633725">
+            <plugin id="TiledBg" />
+            <texture original-source="C:\Users\yuval\Downloads\GameLayout.png" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
         <layout>Layout 1.xml</layout>
+        <layout>Layout 2.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>Event sheet 1.xml</event-sheet>
+        <event-sheet>Event sheet 2.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Mouse" uid="2" />

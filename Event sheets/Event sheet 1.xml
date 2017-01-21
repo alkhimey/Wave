@@ -405,5 +405,28 @@
                 <action id="-9" name="Destroy" sid="441318722428877" type="Orb" />
             </actions>
         </event-block>
+        <event-block sid="250980988791138">
+            <conditions>
+                <condition id="-1" name="Compare X" sid="814618898453289" type="TiledBackground3">
+                    <param id="0" name="Comparison">5</param>
+                    <param id="1" name="X co-ordinate">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" sid="352944658222563" type="TiledBackground3">
+                    <param id="0" name="X">-1024</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="187551144941587">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="146961161494582" type="System" />
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" sid="665260670370913" type="TiledBackground3">
+                    <param id="0" name="X">TiledBackground3.X + (dt * ScrollSpeed)</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>
