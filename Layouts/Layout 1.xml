@@ -52,7 +52,7 @@
             </instances>
             <effects />
         </layer>
-        <layer name="Layer 0" sid="830500390899283">
+        <layer name="Path_Layer" sid="830500390899283">
             <initially-visible>1</initially-visible>
             <background-color>255,255,255</background-color>
             <transparent>1</transparent>
@@ -109,7 +109,7 @@
             </instances>
             <effects />
         </layer>
-        <layer name="Layer 1" sid="106822066813639">
+        <layer name="Player_Layer" sid="106822066813639">
             <initially-visible>1</initially-visible>
             <background-color>255,255,255</background-color>
             <transparent>1</transparent>
@@ -135,8 +135,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>281.74520874</x>
-                        <y>248.632141113</y>
+                        <x>443</x>
+                        <y>231</y>
                         <z>0</z>
                         <width>55.993629456</width>
                         <height>48.759555817</height>
@@ -247,6 +247,43 @@
                         <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>0</opacity>
+                    </world>
+                </instance>
+                <instance type="OrbGenerator" uid="7">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Sine">
+                            <properties>
+                                <active-on-start>Yes</active-on-start>
+                                <movement>Vertical</movement>
+                                <wave>Sine</wave>
+                                <period>4</period>
+                                <period-random>2</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>4</period-offset-random>
+                                <magnitude>200</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>182</x>
+                        <y>223</y>
+                        <z>0</z>
+                        <width>48</width>
+                        <height>48</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
                     </world>
                 </instance>
             </instances>
