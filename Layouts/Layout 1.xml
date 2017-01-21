@@ -132,10 +132,13 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <Energy>0</Energy>
+                    </instance-variables>
                     <effect-instances>
                         <effect-instance type="Brightness">
                             <parameters>
-                                <brightness>0.2</brightness>
+                                <brightness>1</brightness>
                             </parameters>
                         </effect-instance>
                     </effect-instances>
@@ -154,9 +157,9 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="TimeToEnd" uid="4">
+                <instance type="Energy" uid="4">
                     <properties>
-                        <text>TIME   60</text>
+                        <text></text>
                         <initial-visibility>Visible</initial-visibility>
                         <font>Arial,-24,400,0</font>
                         <color>204,51,204</color>

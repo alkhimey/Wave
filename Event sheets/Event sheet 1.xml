@@ -20,16 +20,17 @@
         <variable comment="Normal speed of the path" constant="1" name="C_SLOW_SPEED" sid="256138574746666" static="0" type="number">90</variable>
         <variable comment="Time between orb creation events" constant="1" name="C_ORB_BIRTH_RATE" sid="813345312084330" static="0" type="number">2</variable>
         <variable comment="Time addition when eating an orb" constant="1" name="C_TIME_BOOST" sid="818590381188798" static="0" type="number">5</variable>
-        <variable constant="1" name="C_DIMMER_RATE" sid="920133809310977" static="0" type="number">2</variable>
+        <variable comment="Loss of energy per second" constant="1" name="C_ENERGY_LOSS_RATE_NORM" sid="957379678288009" static="0" type="number">2</variable>
+        <variable comment="Loss of energy per second if above 100%" constant="1" name="C_ENERGY_LOSS_RATE_FAST" sid="645328067284657" static="0" type="number">100</variable>
+        <variable comment="Initial energy" constant="1" name="C_INIT_ENERGY" sid="692890331621606" static="0" type="number">100</variable>
+        <variable constant="1" name="C_ENERGY_REFILL" sid="333028908316616" static="0" type="number">200</variable>
+        <variable comment="Max scale when orb is eaten" constant="1" name="C_SCALE_MAX" sid="707259674615109" static="0" type="number">2</variable>
+        <variable constant="1" name="C_ENERGY_TO_BRIGHT" sid="372063766201415" static="0" type="number">1</variable>
         <event-block sid="726196114182528">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="463665673054465" type="System" />
             </conditions>
             <actions>
-                <action id="-9" name="Set value" sid="629299583150863" type="System">
-                    <param id="0" name="Variable">TotalTime</param>
-                    <param id="1" name="Value">60</param>
-                </action>
                 <action id="-9" name="Set value" sid="985664326741816" type="System">
                     <param id="0" name="Variable">gSpeed</param>
                     <param id="1" name="Value">C_SLOW_SPEED</param>
@@ -40,6 +41,10 @@
                 <action behavior="Pin" id="0" name="Pin to object" sid="987126268240252" type="PlayerGlow">
                     <param id="0" name="Pin to">Player</param>
                     <param id="1" name="Mode">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="221948605508337" type="Player">
+                    <param id="0" name="Instance variable">Energy</param>
+                    <param id="1" name="Value">C_INIT_ENERGY</param>
                 </action>
             </actions>
         </event-block>
@@ -57,12 +62,6 @@
                     <param id="1" name="X">H.X</param>
                     <param id="2" name="Y">Mouse.Y</param>
                     <param id="3" name="Image point">0</param>
-                </action>
-                <action disabled="1" id="-1" name="Set X" sid="178543604761712" type="Player">
-                    <param id="0" name="X">max(0, min(Mouse.X, WindowWidth))</param>
-                </action>
-                <action disabled="1" id="-2" name="Set Y" sid="571357225018022" type="H">
-                    <param id="0" name="Y">Mouse.Y</param>
                 </action>
             </actions>
         </event-block>
@@ -197,38 +196,107 @@
                 </event-block>
             </sub-events>
         </event-block>
+        <comment>Display Energy (Temporary)</comment>
         <event-block sid="708826427343702">
             <conditions>
-                <condition id="-6" name="Every X seconds" sid="888184581434524" type="System">
-                    <param id="0" name="Interval (seconds)">1.0</param>
-                </condition>
+                <condition id="-1" name="Every tick" sid="888184581434524" type="System" />
             </conditions>
             <actions>
-                <action id="0" name="Set text" sid="861819139294230" type="TimeToEnd">
-                    <param id="0" name="Text">&quot;TIME   &quot;  &amp; str(TotalTime - 1)</param>
-                </action>
-                <action id="-9" name="Set value" sid="612420795405471" type="System">
-                    <param id="0" name="Variable">TotalTime</param>
-                    <param id="1" name="Value">TotalTime - 1</param>
+                <action id="0" name="Set text" sid="861819139294230" type="Energy">
+                    <param id="0" name="Text">&quot;Energy   &quot;  &amp; str(Player.Energy)</param>
                 </action>
             </actions>
         </event-block>
+        <comment>Control Energy</comment>
         <event-block sid="656466261507178">
             <conditions>
                 <condition id="-1" name="Every tick" sid="645940531090642" type="System" />
             </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="320944772054907">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="936601628107351" type="Player">
+                            <param id="0" name="Instance variable">Energy</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">C_INIT_ENERGY</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="851176583835870" type="Player">
+                            <param id="0" name="Instance variable">Energy</param>
+                            <param id="1" name="Value">C_ENERGY_LOSS_RATE_FAST * dt</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="905157100718156">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="607468787756078" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="110584364291764" type="Player">
+                            <param id="0" name="Instance variable">Energy</param>
+                            <param id="1" name="Value">C_ENERGY_LOSS_RATE_NORM * dt</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Control Player&apos;s Brightness and Scale</comment>
+        <event-block sid="555180458927887">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="234337085162632" type="System" />
+            </conditions>
             <actions>
-                <action disabled="1" id="-18" name="Set layer opacity" sid="280653894354319" type="System">
-                    <param id="0" name="Layer">LayerIndex(&quot;FG&quot;)</param>
-                    <param id="1" name="Opacity"> max(0,   100 *(60-TotalTime) / 60 ) * C_DIMMER_RATE</param>
-                </action>
-                <action id="-28" name="Set effect parameter" sid="209654738291592" type="Player">
+                <action id="-28" name="Set effect parameter" sid="579481403795496" type="Player">
                     <param id="0" name="Effect">&quot;Brightness&quot;</param>
                     <param id="1" name="Parameter index">0</param>
-                    <param id="2" name="Value"> max(0,   100 *(TotalTime) / 60 ) * C_DIMMER_RATE</param>
+                    <param id="2" name="Value">C_ENERGY_TO_BRIGHT * Player.Energy</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="998637572396885">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="286037543741081" type="Player">
+                            <param id="0" name="Instance variable">Energy</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">C_INIT_ENERGY</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Set scale" sid="426135669095945" type="Player">
+                            <param id="0" name="Scale">((Player.Energy - C_INIT_ENERGY) / (C_ENERGY_REFILL - C_INIT_ENERGY)) * (C_SCALE_MAX - 1) + 1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="889542140351536">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="447630286844581" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Set scale" sid="964714644091144" type="Player">
+                            <param id="0" name="Scale">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Collision</comment>
+        <event-block sid="733454215211755">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="660394149047478" type="Player">
+                    <param id="0" name="Object">Orb</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="484878441840069" type="Orb" />
+                <action id="-10" name="Set value" sid="364179277567942" type="Player">
+                    <param id="0" name="Instance variable">Energy</param>
+                    <param id="1" name="Value">C_ENERGY_REFILL</param>
                 </action>
             </actions>
         </event-block>
+        <comment>Orb Generation</comment>
         <event-block sid="570345994622858">
             <conditions>
                 <condition id="-6" name="Every X seconds" sid="269881719044741" type="System">
@@ -244,24 +312,11 @@
                 </action>
             </actions>
         </event-block>
-        <event-block sid="733454215211755">
-            <conditions>
-                <condition id="0" name="On collision with another object" sid="660394149047478" type="Player">
-                    <param id="0" name="Object">Orb</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Destroy" sid="484878441840069" type="Orb" />
-                <action id="-9" name="Set value" sid="760118336809364" type="System">
-                    <param id="0" name="Variable">TotalTime</param>
-                    <param id="1" name="Value">TotalTime + C_TIME_BOOST</param>
-                </action>
-            </actions>
-        </event-block>
+        <comment>Game Over</comment>
         <event-block sid="516582453483227">
             <conditions>
-                <condition id="-14" name="Compare variable" sid="552670543591676" type="System">
-                    <param id="0" name="Variable">TotalTime</param>
+                <condition id="-7" name="Compare instance variable" sid="362299157629862" type="Player">
+                    <param id="0" name="Instance variable">Energy</param>
                     <param id="1" name="Comparison">0</param>
                     <param id="2" name="Value">0</param>
                 </condition>

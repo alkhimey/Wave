@@ -78,6 +78,9 @@
         </object-type>
         <object-type name="Player" sid="260890240417007">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Energy" sid="685466709890585" type="number" />
+            </instance-variables>
             <effects>
                 <effect-type name="Brightness">
                     <effect id="brightness" />
@@ -152,7 +155,7 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="TimeToEnd" sid="568669722086198">
+        <object-type name="Energy" sid="568669722086198">
             <plugin id="Text" />
             <instance-variables>
                 <instance-variable name="CurrentTime" sid="304576754648266" type="string" />
