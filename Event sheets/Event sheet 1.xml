@@ -18,10 +18,10 @@
         <variable comment="Acceleration gain of the path generator" constant="1" name="C_ACC_GAIN" sid="422255409009347" static="0" type="number">1</variable>
         <variable comment="Speed of the path when mouse button pressed" constant="1" name="C_HIGH_SPEED" sid="410513905465488" static="0" type="number">150</variable>
         <variable comment="Normal speed of the path" constant="1" name="C_SLOW_SPEED" sid="256138574746666" static="0" type="number">90</variable>
-        <variable comment="Time between orb creation events" constant="1" name="C_ORB_BIRTH_RATE" sid="813345312084330" static="0" type="number">2</variable>
+        <variable comment="Time between orb creation events" constant="1" name="C_ORB_BIRTH_RATE" sid="813345312084330" static="0" type="number">4</variable>
         <variable comment="Time addition when eating an orb" constant="1" name="C_TIME_BOOST" sid="818590381188798" static="0" type="number">5</variable>
         <variable comment="Loss of energy per second" constant="1" name="C_ENERGY_LOSS_RATE_NORM" sid="957379678288009" static="0" type="number">2</variable>
-        <variable comment="Loss of energy per second if above 100%" constant="1" name="C_ENERGY_LOSS_RATE_FAST" sid="645328067284657" static="0" type="number">100</variable>
+        <variable comment="Loss of energy per second if above 100%" constant="1" name="C_ENERGY_LOSS_RATE_FAST" sid="645328067284657" static="0" type="number">150</variable>
         <variable comment="Initial energy" constant="1" name="C_INIT_ENERGY" sid="692890331621606" static="0" type="number">100</variable>
         <variable constant="1" name="C_ENERGY_REFILL" sid="333028908316616" static="0" type="number">200</variable>
         <variable comment="Max scale when orb is eaten" constant="1" name="C_SCALE_MAX" sid="707259674615109" static="0" type="number">2</variable>
@@ -253,6 +253,11 @@
                     <param id="1" name="Parameter index">0</param>
                     <param id="2" name="Value">C_ENERGY_TO_BRIGHT * Player.Energy</param>
                 </action>
+                <action id="-28" name="Set effect parameter" sid="977142656923914" type="PlayerGlow">
+                    <param id="0" name="Effect">&quot;Brightness&quot;</param>
+                    <param id="1" name="Parameter index">0</param>
+                    <param id="2" name="Value">C_ENERGY_TO_BRIGHT * Player.Energy</param>
+                </action>
             </actions>
             <sub-events>
                 <event-block sid="998637572396885">
@@ -267,6 +272,11 @@
                         <action id="9" name="Set scale" sid="426135669095945" type="Player">
                             <param id="0" name="Scale">((Player.Energy - C_INIT_ENERGY) / (C_ENERGY_REFILL - C_INIT_ENERGY)) * (C_SCALE_MAX - 1) + 1</param>
                         </action>
+                        <action id="-28" name="Set effect parameter" sid="174471069277542" type="PlayerGlow">
+                            <param id="0" name="Effect">&quot;Brightness&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">((Player.Energy - C_INIT_ENERGY) / (C_ENERGY_REFILL - C_INIT_ENERGY)) * (C_SCALE_MAX - 1) + 1</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="889542140351536">
@@ -275,6 +285,9 @@
                     </conditions>
                     <actions>
                         <action id="9" name="Set scale" sid="964714644091144" type="Player">
+                            <param id="0" name="Scale">1</param>
+                        </action>
+                        <action id="9" name="Set scale" sid="891232797111642" type="PlayerGlow">
                             <param id="0" name="Scale">1</param>
                         </action>
                     </actions>
@@ -310,11 +323,17 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="-3" name="Create object" sid="272288797908980" type="System">
+                <action disabled="1" id="-3" name="Create object" sid="272288797908980" type="System">
                     <param id="0" name="Object to create">Orb</param>
                     <param id="1" name="Layer">LayerIndex(&quot;Player_Layer&quot;)</param>
                     <param id="2" name="X">OrbGenerator.X</param>
                     <param id="3" name="Y">OrbGenerator.Y</param>
+                </action>
+                <action id="-3" name="Create object" sid="300264654364082" type="System">
+                    <param id="0" name="Object to create">Orb</param>
+                    <param id="1" name="Layer">LayerIndex(&quot;Player_Layer&quot;)</param>
+                    <param id="2" name="X">OrbGenerator.X</param>
+                    <param id="3" name="Y">random(ViewportBottom(LayerIndex(&quot;Player_Layer&quot;)))</param>
                 </action>
             </actions>
         </event-block>
@@ -400,6 +419,14 @@
             </conditions>
             <actions>
                 <action id="-9" name="Destroy" sid="927011010715651" type="Waypoint" />
+            </actions>
+        </event-block>
+        <event-block sid="346293784267252">
+            <conditions>
+                <condition id="-4" name="Is outside layout" sid="582159928140214" type="Orb" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="441318722428877" type="Orb" />
             </actions>
         </event-block>
     </events>
