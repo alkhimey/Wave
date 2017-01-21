@@ -342,7 +342,7 @@
             <conditions>
                 <condition id="-7" name="Compare instance variable" sid="362299157629862" type="Player">
                     <param id="0" name="Instance variable">Energy</param>
-                    <param id="1" name="Comparison">0</param>
+                    <param id="1" name="Comparison">3</param>
                     <param id="2" name="Value">0</param>
                 </condition>
             </conditions>
