@@ -294,6 +294,12 @@
                     <param id="0" name="Instance variable">Energy</param>
                     <param id="1" name="Value">C_ENERGY_REFILL</param>
                 </action>
+                <action id="0" name="Play" sid="476397296002661" type="Audio">
+                    <param id="0" name="Audio file">zapThreeToneDown</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
             </actions>
         </event-block>
         <comment>Orb Generation</comment>
@@ -323,6 +329,12 @@
             </conditions>
             <actions>
                 <action id="-26" name="Restart layout" sid="587859922512271" type="System" />
+                <action id="0" name="Play" sid="235475664361459" type="Audio">
+                    <param id="0" name="Audio file">dieShuffle1</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
             </actions>
         </event-block>
         <comment>Experimental</comment>
