@@ -4,8 +4,8 @@
     <sid>688260085474223</sid>
     <event-sheet>Event sheet 1</event-sheet>
     <size>
-        <width>854</width>
-        <height>960</height>
+        <width>1024</width>
+        <height>768</height>
     </size>
     <margins>
         <horizontal>500</horizontal>
@@ -40,8 +40,8 @@
                         <x>0</x>
                         <y>0</y>
                         <z>0</z>
-                        <width>854</width>
-                        <height>480</height>
+                        <width>1024</width>
+                        <height>768</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
